@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail user</title>
+</head>
+<body>
+<form th:action="@{/user/update}" method="post">
+    <input type="hidden" name="id" th:value="${user.id}">
+
+    <label>Username:</label>
+    <input type="text" name="username" required th:value="${user.username}"><br>
+
+    <label>Email:</label>
+    <input type="text" name="email" required th:value="${user.email}"><br>
+
+    <label>Mật khẩu:</label>
+    <input type="text" name="matKhau" required th:value="${user.matKhau}"><br>
+
+    <label>Giới tính:</label>
+    <input type="radio" name="gioiTinh" value="0" th:checked="${user.gioiTinh == '0'}"> Nam
+    <input type="radio" name="gioiTinh" value="1" th:checked="${user.gioiTinh == '1'}"> Nữ<br>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</body>
+</html>

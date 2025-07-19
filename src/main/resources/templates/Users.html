@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<body>
+<table border="1" style="width: 70%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Mật khẩu</th>
+            <th>Giới tính</th>
+            <th>Ngày tạo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${listU}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.matKhau}"></td>
+            <td th:text="${user.gioiTinh ? 'Nữ' : 'Nam'}"></td>
+            <td th:text="${#temporals.format(user.ngayTao, 'dd/MM/yyyy')}"></td>
+            <td>
+                <a th:href="@{/user/detail/{id}(id=${user.id})}">Sửa</a>
+                <a th:href="@{/user/delete/{id}(id=${user.id})}">Xóa</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

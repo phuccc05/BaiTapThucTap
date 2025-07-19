@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail task</title>
+</head>
+<body>
+<form th:action="@{/task/update}" method="post">
+    <input type="hidden" name="id" th:value="${task.id}">
+
+    <label>Tiêu đề:</label>
+    <input type="text" name="title" required th:value="${task.title}"><br>
+
+    <label>Mô tả:</label>
+    <input type="text" name="moTa" required th:value="${task.moTa}"><br>
+
+    <label>Người dùng:</label>
+    <select name="users.id">
+        <option th:each="user : ${listU}"
+                th:value="${user.id}"
+                th:text="${user.username}"
+                th:selected="${task.users.id == user.id}">
+        </option>
+    </select><br>
+
+    <label>Trạng Thái:</label>
+    <input type="radio" name="trangThai" value="0" th:checked="${!task.trangThai}"> Hoàn thành
+    <input type="radio" name="trangThai" value="1" th:checked="${task.trangThai}"> Đang làm<br>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+</body>
+</html>
