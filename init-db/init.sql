@@ -3,13 +3,13 @@ USE master;
 GO
 
 -- Tạo database nếu chưa tồn tại
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'task_manager2')
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'task_manager')
 BEGIN
-    CREATE DATABASE task_manager2;
+    CREATE DATABASE task_manager;
 END
 GO
 
-USE task_manager2;
+USE task_manager;
 GO
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
